@@ -1,0 +1,11 @@
+stages:
+  - deploy_demo
+
+deploy_dev:
+  stage: deploy_demo
+  script:
+    - cd /opt/geonature-ansible && ansible-playbook -i hosts deploy_demo.yml
+  only:
+    - dev
+  tags:
+    - gn-deploy01
