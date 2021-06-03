@@ -28,7 +28,6 @@ from geonature.core.ref_geo.models import LAreas
 import pdb
 from sqlalchemy.inspection import inspect
 
-
 class ZhModel(DB.Model):
     """
         Classe abstraite permettant d'ajout des méthodes
@@ -485,13 +484,14 @@ class CorZhFctArea(DB.Model):
     )
 
 
-@ serializable
+@serializable
 class TReferences(DB.Model):
     __tablename__ = "t_references"
     __table_args__ = {"schema": "pr_zh"}
     id_reference = DB.Column(
         DB.Integer,
-        primary_key=True
+        primary_key=True,
+        autoincrement=True
     )
     authors = DB.Column(DB.Unicode)
     pub_year = DB.Column(DB.Integer)
